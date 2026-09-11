@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LightGuide IRTRA</title>
+    <!-- Fuente estilizada desde Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --verde-pastel: #d8f3dc;
+            --verde-suave: #b7e4c7;
+            --verde-oscuro: #2d6a4f;
+            --azul-pastel: #d8f8ff;
+            --azul-suave: #badefc;
+            --azul-oscuro: #1d3557;
+            --texto-principal: #2b2d42;
+            --fondo-blanco: #ffffff;
+            --sombra-suave: 0 10px 30px rgba(45, 106, 79, 0.08);
+            --radio-borde: 20px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: linear-gradient(135deg, #f4fff8 0%, #ebf8ff 100%);
+            color: var(--texto-principal);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Elementos decorativos flotantes de fondo */
+        .circulo-decorativo {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            z-index: -1;
+        }
+        .c1 { width: 300px; height: 300px; background: var(--verde-pastel); top: 5%; left: -5%; opacity: 0.7; }
+        .c2 { width: 400px; height: 400px; background: var(--azul-pastel); top: 40%; right: -10%; opacity: 0.6; }
+        .c3 { width: 350px; height: 350px; background: var(--verde-suave); bottom: 5%; left: 10%; opacity: 0.5; }
+
+        header {
+            text-align: center;
+            padding: 80px 20px 50px 20px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--azul-suave);
+            color: var(--azul-oscuro);
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            color: var(--verde-oscuro);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            color: #6c757d;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contenedor-principal {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            padding-bottom: 80px;
+        }
+
+        /* Estilo general para cada apartado / tarjeta */
+        .seccion-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            border-radius: var(--radio-borde);
+            padding: 40px;
+            box-shadow: var(--sombra-suave);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .seccion-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(29, 53, 87, 0.12);
+        }
+
+        .seccion-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 6px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--verde-oscuro), var(--azul-suave));
+        }
+
+        .seccion-card h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--verde-oscuro);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .seccion-card p {
+            color: #555;
+            margin-bottom: 25px;
+            font-size: 1rem;
+        }
+
+        /* Espacio reservado para documentos / elementos en la programación */
+        .espacio-documento {
+            background: linear-gradient(135deg, #f8f9fa 0%, #edf6f9 100%);
+            border: 2px dashed #bbe1c3;
+            border-radius: 14px;
+            padding: 30px;
+            text-align: center;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+
+        .espacio-documento:hover {
+            border-color: var(--verde-oscuro);
+            background: #f0fdf4;
+        }
+
+        .espacio-documento span {
+            display: block;
+            font-weight: 600;
+            color: var(--verde-oscuro);
+            margin-bottom: 5px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+            color: #888;
+            border-top: 1px solid rgba(0,0,0,0.05);
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .seccion-card { padding: 25px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Fondos con difuminado estético -->
+    <div class="circulo-decorativo c1"></div>
+    <div class="circulo-decorativo c2"></div>
+    <div class="circulo-decorativo c3"></div>
+
+    <header>
+        <div class="badge">Proyecto Creativo</div>
+        <h1>LightGuide IRTRA</h1>
+        <p>Innovación, guía y diseño interactivo en un solo recorrido.</p>
+    </header>
+
+    <main class="contenedor-principal">
+
+        <!-- APARTADO 1: Circuito Tinkercad -->
+        <section class="seccion-card">
+            <h2>✨ Circuito Tinkercad</h2>
+            <p>Visualización interactiva y esquemática del funcionamiento electrónico desarrollado para el proyecto.</p>
+            
+            <!-- ESPACIO EN LA PROGRAMA PARA COLOCAR EL DOCUMENTO / CÓDIGO / INCORPORACIÓN -->
+            <div class="espacio-documento">
+                <span>[Espacio para insertar el circuito de Tinkercad o iframe]</span>
+                <small>Aquí puedes incrustar el enlace compartido de Tinkercad o la imagen del circuito.</small>
+            </div>
+        </section>
+
+        <!-- APARTADO 2: Investigación Formal -->
+        <section class="seccion-card">
+            <h2>🌿 Investigación Formal</h2>
+            <p>Marco teórico, antecedentes y fundamentos analíticos que respaldan la propuesta técnica.</p>
+            
+            <!-- ESPACIO EN LA PROGRAMA PARA COLOCAR EL DOCUMENTO -->
+            <div class="espacio-documento">
+                <span>[Espacio para colocar documento de Investigación Formal]</span>
+                <small>Inserta aquí tu archivo PDF, enlace a Google Docs o texto estructurado.</small>
+            </div>
+        </section>
+
+        <!-- APARTADO 3: Infografía -->
+        <section class="seccion-card">
+            <h2>💧 Infografía</h2>
+            <p>Síntesis visual y creativa de los puntos clave del proyecto explicados de forma dinámica.</p>
+            
+            <!-- ESPACIO EN LA PROGRAMA PARA COLOCAR EL DOCUMENTO -->
+            <div class="espacio-documento">
+                <span>[Espacio para colocar la Infografía]</span>
+                <small>Inserta aquí la imagen de la infografía (etiqueta &lt;img&gt;) o diseño incrustado.</small>
+            </div>
+        </section>
+
+        <!-- APARTADO 4: Podcast -->
+        <section class="seccion-card">
+            <h2>🎧 Podcast</h2>
+            <p>Explicación auditiva, reflexiones y detalles del proceso creativo y técnico narrados paso a paso.</p>
+            
+            <!-- ESPACIO EN LA PROGRAMA PARA COLOCAR EL DOCUMENTO -->
+            <div class="espacio-documento">
+                <span>[Espacio para colocar el reproductor de Podcast / Audio]</span>
+                <small>Inserta aquí la etiqueta &lt;audio&gt; o el enlace de reproducción (Spotify/Drive).</small>
+            </div>
+        </section>
+
+        <!-- APARTADO 5: Conclusión -->
+        <section class="seccion-card">
+            <h2>🌟 Conclusión</h2>
+            <p>Reflexiones finales, aprendizajes obtenidos y el impacto general del desarrollo de LightGuide IRTRA.</p>
+            
+            <!-- ESPACIO EN LA PROGRAMA PARA COLOCAR EL DOCUMENTO -->
+            <div class="espacio-documento">
+                <span>[Espacio para colocar el texto o documento de Conclusión]</span>
+                <small>Escribe aquí tus conclusiones finales o enlaza el documento correspondiente.</small>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>LightGuide IRTRA &mdash; Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
