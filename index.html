@@ -4,20 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LightGuide IRTRA</title>
-    <!-- Fuente estilizada desde Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
+        :icoes {
+            --verde-menta: #b5e2fa;
+        }
+
         :root {
-            --verde-pastel: #d8f3dc;
-            --verde-suave: #b7e4c7;
-            --verde-oscuro: #2d6a4f;
-            --azul-pastel: #d8f8ff;
-            --azul-suave: #badefc;
-            --azul-oscuro: #1d3557;
-            --texto-principal: #2b2d42;
-            --fondo-blanco: #ffffff;
-            --sombra-suave: 0 10px 30px rgba(45, 106, 79, 0.08);
-            --radio-borde: 20px;
+            --verde-claro: #d8f3dc;
+            --verde-medio: #95d5b2;
+            --verde-profundo: #1b4332;
+            --azul-cielo: #badefc;
+            --azul-pastel: #c7f9cc;
+            --azul-vibrante: #3a86ff;
+            --rosa-suave: #ffccd5;
+            --amarillo-pastel: #fde2e4;
+            --fondo-general: #f0f7f4;
+            --texto-oscuro: #1d3557;
         }
 
         * {
@@ -27,228 +30,229 @@
         }
 
         body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background: linear-gradient(135deg, #f4fff8 0%, #ebf8ff 100%);
-            color: var(--texto-principal);
-            line-height: 1.6;
-            overflow-x: hidden;
+            font-family: 'Nunito', sans-serif;
+            background-color: var(--fondo-general);
+            background-image: 
+                radial-gradient(circle at 10% 20%, #d8f3dc 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, #badefc 0%, transparent 40%),
+                radial-gradient(circle at 50% 50%, #e2f1f8 0%, transparent 60%);
+            color: var(--texto-oscuro);
+            min-height: 100vh;
+            padding-bottom: 60px;
         }
-
-        /* Elementos decorativos flotantes de fondo */
-        .circulo-decorativo {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(60px);
-            z-index: -1;
-        }
-        .c1 { width: 300px; height: 300px; background: var(--verde-pastel); top: 5%; left: -5%; opacity: 0.7; }
-        .c2 { width: 400px; height: 400px; background: var(--azul-pastel); top: 40%; right: -10%; opacity: 0.6; }
-        .c3 { width: 350px; height: 350px; background: var(--verde-suave); bottom: 5%; left: 10%; opacity: 0.5; }
 
         header {
             text-align: center;
-            padding: 80px 20px 50px 20px;
+            padding: 60px 20px 40px;
         }
 
-        .badge {
+        .etiqueta-top {
             display: inline-block;
-            background: var(--azul-suave);
-            color: var(--azul-oscuro);
-            padding: 6px 16px;
-            border-radius: 30px;
+            background: linear-gradient(45deg, #a8dadc, #457b9d);
+            color: #fff;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 800;
             font-size: 0.85rem;
-            font-weight: 600;
-            letter-spacing: 1px;
-            margin-bottom: 15px;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
+            box-shadow: 0 4px 15px rgba(69, 123, 157, 0.2);
+            margin-bottom: 15px;
         }
 
         h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
-            color: var(--verde-oscuro);
+            font-family: 'Quicksand', sans-serif;
+            font-size: 3.2rem;
+            color: var(--verde-profundo);
+            font-weight: 700;
+            text-shadow: 2px 2px 0px #badefc;
             margin-bottom: 10px;
+        }
+
+        .sub-header {
+            font-size: 1.15rem;
+            color: #4a5568;
             font-weight: 600;
         }
 
-        header p {
-            font-size: 1.1rem;
-            color: #6c757d;
-            max-width: 600px;
+        .grid-container {
+            max-width: 950px;
             margin: 0 auto;
-        }
-
-        .contenedor-principal {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 20px;
+            padding: 0 20px;
             display: flex;
             flex-direction: column;
-            gap: 40px;
-            padding-bottom: 80px;
+            gap: 30px;
         }
 
-        /* Estilo general para cada apartado / tarjeta */
-        .seccion-card {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.6);
-            border-radius: var(--radio-borde);
-            padding: 40px;
-            box-shadow: var(--sombra-suave);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        .tarjeta {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 32px;
+            box-shadow: 0 12px 35px rgba(29, 53, 87, 0.07);
+            border: 3px solid transparent;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             position: relative;
-            overflow: hidden;
         }
 
-        .seccion-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(29, 53, 87, 0.12);
+        .tarjeta:nth-child(odd) {
+            border-color: #b7e4c7;
+            background: linear-gradient(135deg, #ffffff 70%, #f1fffa 100%);
         }
 
-        .seccion-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 6px;
-            height: 100%;
-            background: linear-gradient(to bottom, var(--verde-oscuro), var(--azul-suave));
+        .tarjeta:nth-child(even) {
+            border-color: #aed9e0;
+            background: linear-gradient(135deg, #ffffff 70%, #f0faff 100%);
         }
 
-        .seccion-card h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            color: var(--verde-oscuro);
-            margin-bottom: 15px;
+        .tarjeta:hover {
+            transform: scale(1.02);
+            box-shadow: 0 18px 40px rgba(27, 67, 50, 0.12);
+        }
+
+        .tarjeta h2 {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1.8rem;
+            margin-bottom: 12px;
             display: flex;
             align-items: center;
             gap: 12px;
         }
 
-        .seccion-card p {
-            color: #555;
-            margin-bottom: 25px;
-            font-size: 1rem;
+        .tarjeta:nth-child(1) h2 { color: #2d6a4f; }
+        .tarjeta:nth-child(2) h2 { color: #1d3557; }
+        .tarjeta:nth-child(3) h2 { color: #40916c; }
+        .tarjeta:nth-child(4) h2 { color: #3a86ff; }
+        .tarjeta:nth-child(5) h2 { color: #2b2d42; }
+
+        .tarjeta p {
+            color: #52606d;
+            font-size: 1.05rem;
+            margin-bottom: 22px;
         }
 
-        /* Espacio reservado para documentos / elementos en la programación */
-        .espacio-documento {
-            background: linear-gradient(135deg, #f8f9fa 0%, #edf6f9 100%);
-            border: 2px dashed #bbe1c3;
-            border-radius: 14px;
-            padding: 30px;
+        .slot-documento {
+            background: #f8fafc;
+            border: 2px dashed #95d5b2;
+            border-radius: 16px;
+            padding: 28px;
             text-align: center;
-            color: #666;
-            transition: all 0.3s ease;
+            position: relative;
+            transition: background 0.3s ease;
         }
 
-        .espacio-documento:hover {
-            border-color: var(--verde-oscuro);
-            background: #f0fdf4;
+        .slot-documento:hover {
+            background: #e8f5e9;
+            border-color: #2d6a4f;
         }
 
-        .espacio-documento span {
+        .slot-label {
+            font-weight: 800;
+            color: #1b4332;
+            font-size: 0.95rem;
             display: block;
-            font-weight: 600;
-            color: var(--verde-oscuro);
-            margin-bottom: 5px;
+            margin-bottom: 6px;
         }
+
+        .slot-hint {
+            font-size: 0.85rem;
+            color: #718096;
+        }
+
+        .badge-color {
+            position: absolute;
+            top: -12px;
+            right: 25px;
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .t1 .badge-color { background: #d8f3dc; color: #1b4332; }
+        .t2 .badge-color { background: #badefc; color: #1d3557; }
+        .t3 .badge-color { background: #d8f3dc; color: #2d6a4f; }
+        .t4 .badge-color { background: #badefc; color: #0077b6; }
+        .t5 .badge-color { background: #ffccd5; color: #9b2226; }
 
         footer {
             text-align: center;
-            padding: 40px;
-            background: rgba(255, 255, 255, 0.5);
-            font-size: 0.9rem;
-            color: #888;
-            border-top: 1px solid rgba(0,0,0,0.05);
-        }
-
-        @media (max-width: 768px) {
-            h1 { font-size: 2.5rem; }
-            .seccion-card { padding: 25px; }
+            margin-top: 50px;
+            font-weight: 700;
+            color: #457b9d;
+            font-size: 0.95rem;
         }
     </style>
 </head>
 <body>
 
-    <!-- Fondos con difuminado estético -->
-    <div class="circulo-decorativo c1"></div>
-    <div class="circulo-decorativo c2"></div>
-    <div class="circulo-decorativo c3"></div>
-
     <header>
-        <div class="badge">Proyecto Creativo</div>
+        <span class="etiqueta-top">Portafolio Digital &bull; IRTRA</span>
         <h1>LightGuide IRTRA</h1>
-        <p>Innovación, guía y diseño interactivo en un solo recorrido.</p>
+        <p class="sub-header">Innovación, luz y creatividad en cada sección</p>
     </header>
 
-    <main class="contenedor-principal">
+    <div class="grid-container">
 
-        <!-- APARTADO 1: Circuito Tinkercad -->
-        <section class="seccion-card">
-            <h2>✨ Circuito Tinkercad</h2>
-            <p>Visualización interactiva y esquemática del funcionamiento electrónico desarrollado para el proyecto.</p>
-            
-            <!-- ESPACIO EN LA PROGRAMA PARA COLOCAR EL DOCUMENTO / CÓDIGO / INCORPORACIÓN -->
-            <div class="espacio-documento">
-                <span>[Espacio para insertar el circuito de Tinkercad o iframe]</span>
-                <small>Aquí puedes incrustar el enlace compartido de Tinkercad o la imagen del circuito.</small>
+        <!-- Apartado 1 -->
+        <section class="tarjeta t1">
+            <span class="badge-color">Sección 01</span>
+            <h2>⚡ Circuito Tinkercad</h2>
+            <p>Esquema interactivo, conexiones y simulación del circuito eléctrico diseñado para el proyecto.</p>
+            <div class="slot-documento">
+                <span class="slot-label">&lt;!-- ESPACIO PARA CIRCUITO / IFRAME DE TINKERCAD --&gt;</span>
+                <span class="slot-hint">Pega aquí tu enlace de Tinkercad o la imagen del esquemático</span>
             </div>
         </section>
 
-        <!-- APARTADO 2: Investigación Formal -->
-        <section class="seccion-card">
-            <h2>🌿 Investigación Formal</h2>
-            <p>Marco teórico, antecedentes y fundamentos analíticos que respaldan la propuesta técnica.</p>
-            
-            <!-- ESPACIO EN LA PROGRAMA PARA COLOCAR EL DOCUMENTO -->
-            <div class="espacio-documento">
-                <span>[Espacio para colocar documento de Investigación Formal]</span>
-                <small>Inserta aquí tu archivo PDF, enlace a Google Docs o texto estructurado.</small>
+        <!-- Apartado 2 -->
+        <section class="tarjeta t2">
+            <span class="badge-color">Sección 02</span>
+            <h2>📚 Investigación Formal</h2>
+            <p>Fundamentos teóricos, justificación y análisis detallado de la propuesta tecnológica.</p>
+            <div class="slot-documento">
+                <span class="slot-label">&lt;!-- ESPACIO PARA INVESTIGACIÓN FORMAL (PDF / DOC) --&gt;</span>
+                <span class="slot-hint">Inserta aquí tu documento PDF o vista previa del archivo</span>
             </div>
         </section>
 
-        <!-- APARTADO 3: Infografía -->
-        <section class="seccion-card">
-            <h2>💧 Infografía</h2>
-            <p>Síntesis visual y creativa de los puntos clave del proyecto explicados de forma dinámica.</p>
-            
-            <!-- ESPACIO EN LA PROGRAMA PARA COLOCAR EL DOCUMENTO -->
-            <div class="espacio-documento">
-                <span>[Espacio para colocar la Infografía]</span>
-                <small>Inserta aquí la imagen de la infografía (etiqueta &lt;img&gt;) o diseño incrustado.</small>
+        <!-- Apartado 3 -->
+        <section class="tarjeta t3">
+            <span class="badge-color">Sección 03</span>
+            <h2>🎨 Infografía</h2>
+            <p>Resumen visual y gráfico con los puntos más importantes del funcionamiento de LightGuide.</p>
+            <div class="slot-documento">
+                <span class="slot-label">&lt;!-- ESPACIO PARA IMAGEN DE INFOGRAFÍA &lt;img&gt; --&gt;</span>
+                <span class="slot-hint">Coloca aquí la etiqueta &lt;img src="tu-infografia.png"&gt;</span>
             </div>
         </section>
 
-        <!-- APARTADO 4: Podcast -->
-        <section class="seccion-card">
-            <h2>🎧 Podcast</h2>
-            <p>Explicación auditiva, reflexiones y detalles del proceso creativo y técnico narrados paso a paso.</p>
-            
-            <!-- ESPACIO EN LA PROGRAMA PARA COLOCAR EL DOCUMENTO -->
-            <div class="espacio-documento">
-                <span>[Espacio para colocar el reproductor de Podcast / Audio]</span>
-                <small>Inserta aquí la etiqueta &lt;audio&gt; o el enlace de reproducción (Spotify/Drive).</small>
+        <!-- Apartado 4 -->
+        <section class="tarjeta t4">
+            <span class="badge-color">Sección 04</span>
+            <h2>🎙️ Podcast</h2>
+            <p>Explicación grabada, comentarios y el detrás de cámaras narrado por el equipo.</p>
+            <div class="slot-documento">
+                <span class="slot-label">&lt;!-- ESPACIO PARA REPRODUCTOR DE PODCAST &lt;audio&gt; --&gt;</span>
+                <span class="slot-hint">Inserta aquí tu reproductor de audio o enlace al archivo de voz</span>
             </div>
         </section>
 
-        <!-- APARTADO 5: Conclusión -->
-        <section class="seccion-card">
-            <h2>🌟 Conclusión</h2>
-            <p>Reflexiones finales, aprendizajes obtenidos y el impacto general del desarrollo de LightGuide IRTRA.</p>
-            
-            <!-- ESPACIO EN LA PROGRAMA PARA COLOCAR EL DOCUMENTO -->
-            <div class="espacio-documento">
-                <span>[Espacio para colocar el texto o documento de Conclusión]</span>
-                <small>Escribe aquí tus conclusiones finales o enlaza el documento correspondiente.</small>
+        <!-- Apartado 5 -->
+        <section class="tarjeta t5">
+            <span class="badge-color">Sección 05</span>
+            <h2>✨ Conclusión</h2>
+            <p>Reflexiones finales, alcances logrados y perspectivas a futuro del proyecto.</p>
+            <div class="slot-documento">
+                <span class="slot-label">&lt;!-- ESPACIO PARA TEXTO / CONCLUSIÓN --&gt;</span>
+                <span class="slot-hint">Escribe aquí tus conclusiones o enlaza el documento final</span>
             </div>
         </section>
 
-    </main>
+    </div>
 
     <footer>
-        <p>LightGuide IRTRA &mdash; Todos los derechos reservados.</p>
+        <p>LightGuide IRTRA &mdash; Hecho con dedicación</p>
     </footer>
 
 </body>
