@@ -4,23 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LightGuide IRTRA</title>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600;700&family=Nunito:wght@500;700;800&display=swap" rel="stylesheet">
     <style>
-        :icoes {
-            --verde-menta: #b5e2fa;
-        }
-
         :root {
-            --verde-claro: #d8f3dc;
-            --verde-medio: #95d5b2;
-            --verde-profundo: #1b4332;
-            --azul-cielo: #badefc;
-            --azul-pastel: #c7f9cc;
-            --azul-vibrante: #3a86ff;
-            --rosa-suave: #ffccd5;
-            --amarillo-pastel: #fde2e4;
-            --fondo-general: #f0f7f4;
-            --texto-oscuro: #1d3557;
+            --verde-vibrante: #00b4d8;
+            --verde-limon: #2ec4b6;
+            --verde-oscuro: #0f4c5c;
+            --azul-electric: #3a86ff;
+            --azul-cyan: #48cae4;
+            --rosa-alegre: #ff006e;
+            --amarillo-neon: #ffbe0b;
+            --fondo-glass: rgba(255, 255, 255, 0.88);
+            --texto-oscuro: #0b132b;
         }
 
         * {
@@ -31,11 +26,10 @@
 
         body {
             font-family: 'Nunito', sans-serif;
-            background-color: var(--fondo-general);
-            background-image: 
-                radial-gradient(circle at 10% 20%, #d8f3dc 0%, transparent 40%),
-                radial-gradient(circle at 90% 80%, #badefc 0%, transparent 40%),
-                radial-gradient(circle at 50% 50%, #e2f1f8 0%, transparent 60%);
+            /* Imagen del proyecto de fondo con capa de color vibrante semi-transparente */
+            background: linear-gradient(135deg, rgba(46, 196, 182, 0.85) 0%, rgba(58, 134, 255, 0.85) 100%),
+                        url('watermarked_img_11314119660230340159.jpg') no-repeat center center fixed;
+            background-size: cover;
             color: var(--texto-oscuro);
             min-height: 100vh;
             padding-bottom: 60px;
@@ -48,31 +42,32 @@
 
         .etiqueta-top {
             display: inline-block;
-            background: linear-gradient(45deg, #a8dadc, #457b9d);
-            color: #fff;
-            padding: 8px 20px;
+            background: var(--amarillo-neon);
+            color: var(--texto-oscuro);
+            padding: 8px 22px;
             border-radius: 50px;
             font-weight: 800;
             font-size: 0.85rem;
             letter-spacing: 1.5px;
             text-transform: uppercase;
-            box-shadow: 0 4px 15px rgba(69, 123, 157, 0.2);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
             margin-bottom: 15px;
         }
 
         h1 {
             font-family: 'Quicksand', sans-serif;
-            font-size: 3.2rem;
-            color: var(--verde-profundo);
+            font-size: 3.5rem;
+            color: #ffffff;
             font-weight: 700;
-            text-shadow: 2px 2px 0px #badefc;
+            text-shadow: 3px 3px 0px rgba(15, 76, 92, 0.4);
             margin-bottom: 10px;
         }
 
         .sub-header {
-            font-size: 1.15rem;
-            color: #4a5568;
-            font-weight: 600;
+            font-size: 1.2rem;
+            color: #f8f9fa;
+            font-weight: 700;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
         }
 
         .grid-container {
@@ -85,28 +80,19 @@
         }
 
         .tarjeta {
-            background: #ffffff;
+            background: var(--fondo-glass);
+            backdrop-filter: blur(12px);
             border-radius: 24px;
             padding: 32px;
-            box-shadow: 0 12px 35px rgba(29, 53, 87, 0.07);
-            border: 3px solid transparent;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.18);
+            border: 3px solid rgba(255, 255, 255, 0.8);
             transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             position: relative;
         }
 
-        .tarjeta:nth-child(odd) {
-            border-color: #b7e4c7;
-            background: linear-gradient(135deg, #ffffff 70%, #f1fffa 100%);
-        }
-
-        .tarjeta:nth-child(even) {
-            border-color: #aed9e0;
-            background: linear-gradient(135deg, #ffffff 70%, #f0faff 100%);
-        }
-
         .tarjeta:hover {
             transform: scale(1.02);
-            box-shadow: 0 18px 40px rgba(27, 67, 50, 0.12);
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25);
         }
 
         .tarjeta h2 {
@@ -118,36 +104,38 @@
             gap: 12px;
         }
 
-        .tarjeta:nth-child(1) h2 { color: #2d6a4f; }
-        .tarjeta:nth-child(2) h2 { color: #1d3557; }
-        .tarjeta:nth-child(3) h2 { color: #40916c; }
+        .tarjeta:nth-child(1) h2 { color: #0077b6; }
+        .tarjeta:nth-child(2) h2 { color: #0f4c5c; }
+        .tarjeta:nth-child(3) h2 { color: #2ec4b6; }
         .tarjeta:nth-child(4) h2 { color: #3a86ff; }
-        .tarjeta:nth-child(5) h2 { color: #2b2d42; }
+        .tarjeta:nth-child(5) h2 { color: #7209b7; }
 
         .tarjeta p {
-            color: #52606d;
+            color: #2b2d42;
             font-size: 1.05rem;
             margin-bottom: 22px;
+            font-weight: 600;
         }
 
         .slot-documento {
-            background: #f8fafc;
-            border: 2px dashed #95d5b2;
+            background: rgba(255, 255, 255, 0.9);
+            border: 2px dashed #00b4d8;
             border-radius: 16px;
             padding: 28px;
             text-align: center;
             position: relative;
-            transition: background 0.3s ease;
+            transition: all 0.3s ease;
         }
 
         .slot-documento:hover {
-            background: #e8f5e9;
-            border-color: #2d6a4f;
+            background: #ffffff;
+            border-color: #3a86ff;
+            box-shadow: inset 0 0 15px rgba(58, 134, 255, 0.1);
         }
 
         .slot-label {
             font-weight: 800;
-            color: #1b4332;
+            color: #0f4c5c;
             font-size: 0.95rem;
             display: block;
             margin-bottom: 6px;
@@ -155,32 +143,34 @@
 
         .slot-hint {
             font-size: 0.85rem;
-            color: #718096;
+            color: #4a5568;
         }
 
         .badge-color {
             position: absolute;
-            top: -12px;
+            top: -14px;
             right: 25px;
-            padding: 4px 14px;
+            padding: 5px 16px;
             border-radius: 20px;
             font-size: 0.75rem;
             font-weight: 800;
             text-transform: uppercase;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
-        .t1 .badge-color { background: #d8f3dc; color: #1b4332; }
-        .t2 .badge-color { background: #badefc; color: #1d3557; }
-        .t3 .badge-color { background: #d8f3dc; color: #2d6a4f; }
-        .t4 .badge-color { background: #badefc; color: #0077b6; }
-        .t5 .badge-color { background: #ffccd5; color: #9b2226; }
+        .t1 .badge-color { background: #00b4d8; color: #fff; }
+        .t2 .badge-color { background: #2ec4b6; color: #fff; }
+        .t3 .badge-color { background: #3a86ff; color: #fff; }
+        .t4 .badge-color { background: #ffbe0b; color: #0b132b; }
+        .t5 .badge-color { background: #ff006e; color: #fff; }
 
         footer {
             text-align: center;
             margin-top: 50px;
-            font-weight: 700;
-            color: #457b9d;
+            font-weight: 800;
+            color: #fff;
             font-size: 0.95rem;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
         }
     </style>
 </head>
